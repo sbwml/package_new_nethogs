@@ -31,6 +31,9 @@ define Package/mentohust/description
   NetHogs does not rely on a special kernel module to be loaded.
 endef
 
+TARGET_CXXFLAGS += -std=c++17 -fpermissive
+TARGET_LDFLAGS += -Wl,--unresolved-symbols=ignore-in-object-files
+
 define Package/$(PKG_NAME)/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/local/sbin/nethogs $(1)/usr/sbin/nethogs
